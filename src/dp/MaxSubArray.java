@@ -1,4 +1,4 @@
-package array;
+package dp;
 
 import java.util.Scanner;
 
@@ -10,6 +10,8 @@ import java.util.Scanner;
  */
 public class MaxSubArray {
     public static int maxSubArray(int[] nums){
+
+        /** 双重循环效率太低
         int maxsum = nums[0];
         int s = 0, e = 0;
         for(int i=0; i<nums.length; i++){
@@ -24,11 +26,23 @@ public class MaxSubArray {
                 }
             }
 
+        }*/
+
+        if(nums.length == 0)
+            return 0;
+        int sum = nums[0];
+        int temp = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(temp>0)
+                temp += nums[i];
+            else
+                temp = nums[i];
+            if(sum < temp)
+                sum = temp;
         }
 
 
-        System.out.println(s+"|"+e);
-        return maxsum;
+        return sum;
     }
     public static int maxSubArray2(int[] a){
         int maxSum = 0;
