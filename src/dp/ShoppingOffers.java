@@ -72,6 +72,7 @@ public class ShoppingOffers {
                 needs.add(in.nextInt());
             }
             System.out.println(shoppingOffers(price, special, needs));
+
         }
     }
 }

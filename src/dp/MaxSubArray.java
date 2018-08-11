@@ -32,13 +32,17 @@ public class MaxSubArray {
             return 0;
         int sum = nums[0];
         int temp = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            if(temp>0)
+//                temp += nums[i];
+//            else
+//                temp = nums[i];
+//            if(sum < temp)
+//                sum = temp;
+//        }
         for (int i = 0; i < nums.length; i++) {
-            if(temp>0)
-                temp += nums[i];
-            else
-                temp = nums[i];
-            if(sum < temp)
-                sum = temp;
+            temp = (temp + nums[i])>nums[i]?(temp+nums[i]):nums[i];
+            sum = sum < temp?temp:sum;
         }
 
 
